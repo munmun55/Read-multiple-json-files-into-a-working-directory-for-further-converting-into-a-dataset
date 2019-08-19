@@ -7,12 +7,14 @@ The sample json files text1.json, text2.json and text3.json are present in the f
 Jsonlite  and dplyr packages are installed and then following commands are executed using R-studio:
 
 # Reading multiple files using for loop and convert into a dataset
+
 library(jsonlite)
 library(dplyr)
 
 ls <- list("E:\\munmun\\json\\text1.json",
            "E:\\munmun\\json\\text2.json",
            "E:\\munmun\\json\\text3.json")
+           
 for (i in ls){
   a[i] <- read_json(i, simplifyVector = TRUE)
   z[i] <- data.frame( i,row.names = NULL, check.rows = FALSE,
@@ -21,6 +23,7 @@ for (i in ls){
   
   z[i] <- cbind(z[i],a[i])
 }
+
 View(a)
 View(z)
 
